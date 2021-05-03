@@ -10,16 +10,24 @@ let xhr = new XMLHttpRequest();
 send.addEventListener('click', (e) => {
     e.preventDefault();
 
-    xhr.open('GET', `https://api.giphy.com/v1/gifs/search?q=${search.value}&rating=g&limit=50&api_key=${API_key}`);
+    xhr.open('GET', `https://api.giphy.com/v1/gifs/search?q=${search.value}&rating=g&api_key=${API_key}`);
     xhr.send();
     xhr.responseType = 'json';
     let url = '';
+    let error = document.querySelector('.error');
+
+
     xhr.onload = function() {
+
+        if(search.value == '' || search.value == null) {
+            return error.classList.remove('hidden');
+        } else {
+            error.classList.add('hidden')
+        }
+
         if (xhr.status != 200) {
             console.log(`Error: ${xhr.status}: ${xhr.statusText}`)
         }
-        let random = Math.floor(Math.random() * 50)
-
 
         let div = document.createElement('div')
         div.setAttribute('class', 'gifbox')
@@ -37,7 +45,12 @@ send.addEventListener('click', (e) => {
         image.style.display = "block";
         image.style.borderRadius = "5px";
 
+        const random = Math.floor(Math.random() * xhr.response.data.length);
+        console.log(random)
+        console.log(xhr.response)
+
         url = xhr.response.data[random].images.original.url;
+
         image.setAttribute('src', `${url}`)
         image.style.display = "block";
         div.appendChild(image);
