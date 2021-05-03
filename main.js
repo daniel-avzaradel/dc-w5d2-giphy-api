@@ -19,7 +19,11 @@ send.addEventListener('click', (e) => {
 
     xhr.onload = function() {
 
-        if(search.value == '' || search.value == null) {
+        const random = Math.floor(Math.random() * xhr.response.data.length);
+        console.log(random)
+        console.log(xhr.response)
+
+        if(search.value == '' || search.value == null || random == 0) {
             return error.classList.remove('hidden');
         } else {
             error.classList.add('hidden')
@@ -44,10 +48,6 @@ send.addEventListener('click', (e) => {
         image.style.maxWidth = "200px";
         image.style.display = "block";
         image.style.borderRadius = "5px";
-
-        const random = Math.floor(Math.random() * xhr.response.data.length);
-        console.log(random)
-        console.log(xhr.response)
 
         url = xhr.response.data[random].images.original.url;
 
