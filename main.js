@@ -23,7 +23,7 @@ send.addEventListener('click', (e) => {
         console.log(random)
         console.log(xhr.response)
 
-        if(search.value == '' || search.value == null || random == 0) {
+        if(search.value == '' || search.value == null || xhr.response.data.length == 0) {
             return error.classList.remove('hidden');
         } else {
             error.classList.add('hidden')
