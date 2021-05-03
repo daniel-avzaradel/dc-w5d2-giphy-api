@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(159, 194, 194);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+form input {
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: rgb(230, 230, 230);
+    border-radius: 5px;
+    margin-top: 60px;
+}
+
+form p {
+    text-align: center;
+    margin: 8px;
+}
+
+#send, #deleteAll {
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: 0.2s ease all;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#send:hover, #deleteAll:hover {
+    background-color: rgb(45, 204, 183);
+    border: 1px solid #333;
+    box-sizing: border-box;
+}
+
+.gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    min-width: 400px;
+    background-color: darkcyan;
+    border-radius: 5px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    padding: 20px;
+}
